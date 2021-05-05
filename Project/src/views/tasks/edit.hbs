@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/task/edit/{{task.id}}" method="POST">
+                        <div class="form-group p-1">
+                            <h1 class="text-center">Editar una tarea</h1>
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text" name="title" class="form-control" value="{{task.title}}" placeholder="Title" >
+                        </div>
+                       
+                        <div class="form-group p-1">
+                            <input type="text" name="personInCharge" class="form-control" value="{{task.personInCharge}}">
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="text" name="hashtag" class="form-control" value="{{task.hashtag}}">
+                        </div>
+                        <div class="form-group p-1">
+                            <select class="form-select" aria-label="Default select example" name="priorityLevel" value="{{task.priorityLevel}}">
+                                <option selected>Nivel de prioridad</option>
+                                <option value="1">Muy alta</option>
+                                <option value="2">Alta</option>
+                                <option value="3">Normal</option> 
+                                <option value="4">Baja</option>
+                                <option value="5">Muy baja</option>
+                            </select>
+                        </div>
+                        <div class="form-group p-1">
+                            <button class="btn btn-success btn-block">
+                                Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
