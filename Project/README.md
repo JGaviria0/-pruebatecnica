@@ -11,7 +11,7 @@
 
 ## Installation
     
-    cd Project
+    cd prueba-tecnica/project
     npm install
     
 ------------
