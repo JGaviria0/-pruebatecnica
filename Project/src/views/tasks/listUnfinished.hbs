@@ -1,5 +1,15 @@
 <div class="container p-4">
     <div class="row">
+        <table class="table table-striped">
+        
+            <tr class="table-warning">
+                <th style="width:40%"><h5>Tareas por realizar</h5> </td>
+                <th style="width:30%"></td>
+                <th style="width:30%"></td>
+                <th style="width:10%"></td>
+            </tr>
+        
+        </table>
         {{#each tasks}}
             <div class="col-md-3 p-2">
                 <div class="card text-center p-4">
@@ -13,9 +23,9 @@
                     <p>
                         {{priorityLevel}}
                     </p>
-                    <p>
+                    {{!-- <p>
                         {{timeago createdAt}}
-                    </p>
+                    </p> --}}
                     <a href="/task/delete/{{id}}" class="btn btn-danger m-2"> Eliminar </a>
                     <a href="/task/edit/{{id}}" class="btn btn-secondary m-2"> Editar </a>
                     <a href="/task/finish/{{id}}" class="btn btn-success m-2"> Completada </a>
@@ -24,8 +34,8 @@
         {{else}}
             <div class="col md-4 mx-">
                 <div class="card card-body text-center">
-                    <p>Aun no tienes tareas</p>
-                    <a href="/task/add">Agraga una nueva tarea</a>
+                    <p>Ya terminaste todas tus tares</p>
+                    <a href="/task/">Ver tus tareas</a>
                 </div>
             </div>
         {{/each}}

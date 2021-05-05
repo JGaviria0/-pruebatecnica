@@ -60,14 +60,14 @@ router.post('/add', async (req, res) => {
         hashtag
     }
     await pool.query('INSERT INTO tasks set ? ', [newTask])
-    req.flash('success', 'Tarea eliminada correctamente')
+    req.flash('success', 'Tarea agregada correctamente')
     res.redirect('/task')
 })
 
 router.get('/delete/:id', async (req, res) => {
     const { id } = req.params
     await pool.query('DELETE FROM tasks WHERE ID = ?', [id]);
-    
+    req.flash('success', 'Tarea eliminada correctamente')
     res.redirect('/task') 
 })
 
@@ -94,6 +94,7 @@ router.post('/edit/:id', async (req, res) => {
 router.get('/finish/:id', async (req, res) => {
     const { id } = req.params
     await pool.query('UPDATE tasks set finalizada = 2 WHERE id = ?',[id])
+    req.flash('success', 'Tarea completada')
     res.redirect('/task') 
 })
 
