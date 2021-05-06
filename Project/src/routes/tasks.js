@@ -30,16 +30,16 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/unfinished', async (req, res) => {
-    const tasks = await pool.query('SELECT * FROM tasks WHERE finalizada = 1 ORDER BY priorityLevel ASC')
+    const tasks = await pool.query('SELECT * FROM tasks WHERE finalizada = 2 ORDER BY priorityLevel ASC')
     for(var i =0; i<tasks.length; i++) {
         tasks[i].priorityLevel = changePrioritylevel(tasks[i].priorityLevel)
-        console.log(tasks[i].priorityLevel)
+        console.log(tasks[i].priorityLevel) 
     }
     res.render('tasks/listfinished', { tasks })
 })
 
 router.get('/finished', async (req, res) => {
-    const tasks = await pool.query('SELECT * FROM tasks WHERE finalizada = 2 ORDER BY priorityLevel ASC')
+    const tasks = await pool.query('SELECT * FROM tasks WHERE finalizada = 1 ORDER BY priorityLevel ASC')
     for(var i =0; i<tasks.length; i++) {
         tasks[i].priorityLevel = changePrioritylevel(tasks[i].priorityLevel)
         console.log(tasks[i].priorityLevel)
